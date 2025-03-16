@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_cache_manager/src/config/config.dart' as def;
 
@@ -36,9 +34,6 @@ class Config implements def.Config {
   final FileService fileService;
 
   static CacheInfoRepository _createRepo(String key) {
-    if (Platform.isAndroid || Platform.isIOS || Platform.isMacOS) {
-      return CacheObjectProvider(databaseName: key);
-    }
     return JsonCacheInfoRepository(databaseName: key);
   }
 }
